@@ -37,10 +37,12 @@
   "keywords": [
     "api",
     "breach",
+    "infosec",
     "hacking",
     "haveibeenpwned",
     "security",
-    "password"
+    "password",
+    "passwords"
   ],
   "license": "Unlicense"
 }
