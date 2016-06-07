@@ -17,7 +17,7 @@ var config = {
  */
 
 function processApiError (res, err, callback) {
-  var error = new Error ('API error')
+  var error = new Error ('API error');
 
   error.statusCode = res.statusCode;
   error.body = res.body;
