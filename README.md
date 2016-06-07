@@ -107,7 +107,7 @@ callback | function | yes      | `function (err, data) {}`
 
 
 ```js
-pwned.breach ('foo@bar.com', yourCallback);
+pwned.breach ('Adobe', yourCallback);
 ```
 
 [Example output](https://haveibeenpwned.com/api/v2/breach/Adobe)
