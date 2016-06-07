@@ -186,7 +186,7 @@ function methodDataclasses (callback) {
  */
 
 module.exports = function (set) {
-  config.timeout = set.timeout || config.timeout;
+  config.timeout = set && set.timeout || config.timeout;
 
   return {
     breachedAccount: methodBreachedAccount,
