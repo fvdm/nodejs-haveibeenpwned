@@ -9,6 +9,11 @@ API methods for Have I been pwned (unofficial)
 [![Coverage Status](https://coveralls.io/repos/github/fvdm/nodejs-haveibeenpwned/badge.svg?branch=master)](https://coveralls.io/github/fvdm/nodejs-haveibeenpwned?branch=master)
 
 
+* [Node.js](https://nodejs.org)
+* [Have I been pwned](https://haveibeenpwned.com)
+* [API documentation](https://haveibeenpwned.com/API/v2)
+
+
 Example
 -------
 
