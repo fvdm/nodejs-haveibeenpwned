@@ -100,6 +100,20 @@ function httpRequest (service, param, parameters, callback) {
 
 /**
 /**
+ * All breached sites in the system
+ *
+ * @callback callback
+ * @param [params] {object} - Additional parameters to include
+ * @param callback {function} - `function (err, data) {}`
+ * @returns {void}
+ */
+
+function methodBreaches (params, callback) {
+  httpRequest ('breaches', '', params, callback);
+}
+
+
+/**
  * A single breached site
  *
  * @callback callback
@@ -154,6 +168,7 @@ module.exports = function (set) {
   config.timeout = set.timeout || config.timeout;
 
   return {
+    breaches: methodBreaches,
     breach: methodBreach,
     pasteAccount: methodPasteAccount,
     dataclasses: methodDataclasses
