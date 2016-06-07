@@ -1,3 +1,9 @@
+#### 1.0.2 (2016-6-8)
+
+##### Documentation Changes
+
+* **changelog:** Fixed bad commit urls ([798c6874](https://github.com/fvdm/nodejs-haveibeenpwned/commit/798c6874a311f3087fa2b1b46d002485aff357f3))
+
 #### 1.0.1 (2016-6-8)
 
 ##### Documentation Changes
