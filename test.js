@@ -1,3 +1,13 @@
+/*
+  Name:         haveibeenpwned - test.js
+  Description:  Unit tests for index.js
+  Author:       Franklin van de Meent (https://frankl.in)
+  Source code:  https://github.com/fvdm/nodejs-haveibeenpwned
+  Feedback:     https://github.com/fvdm/nodejs-haveibeenpwned/issues
+  License:      Unlicense (public domain, see LICENSE file)
+*/
+
+
 var dotest = require ('dotest');
 var app = require ('./');
 

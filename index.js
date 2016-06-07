@@ -1,3 +1,13 @@
+/*
+  Name:         haveibeenpwned - index.js
+  Description:  API methods for HaveIBeenPwnd.com (unofficial)
+  Author:       Franklin van de Meent (https://frankl.in)
+  Source code:  https://github.com/fvdm/nodejs-haveibeenpwned
+  Feedback:     https://github.com/fvdm/nodejs-haveibeenpwned/issues
+  License:      Unlicense (public domain, see LICENSE file)
+*/
+
+
 var httpreq = require ('httpreq');
 
 var config = {
