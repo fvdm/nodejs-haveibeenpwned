@@ -100,6 +100,21 @@ function httpRequest (service, param, parameters, callback) {
 
 /**
 /**
+ * All pastes for an account
+ *
+ * @callback callback
+ * @param account {string} - Email or username
+ * @param [params] {object} - Additional parameters to include
+ * @param callback {function} - `function (err, data) {}`
+ * @returns {void}
+ */
+
+function methodPasteAccount (account, callback) {
+  httpRequest ('pasteaccount', account, callback);
+}
+
+
+/**
  * All data classes in the system
  *
  * @callback callback
@@ -124,6 +139,7 @@ module.exports = function (set) {
   config.timeout = set.timeout || config.timeout;
 
   return {
+    pasteAccount: methodPasteAccount,
     dataclasses: methodDataclasses
   };
 };
