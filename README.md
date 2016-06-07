@@ -64,6 +64,8 @@ callback | function | yes      | `function (err, data) {}`
 pwned.breachedAccount ('foo@bar.com', yourCallback);
 ```
 
+[Example output](https://haveibeenpwned.com/api/v2/breachedaccount/foo@bar.com)
+
 
 .breaches
 ---------
@@ -81,6 +83,8 @@ callback | function | yes      | `function (err, data) {}`
 ```js
 pwned.breaches (yourCallback);
 ```
+
+[Example output](https://haveibeenpwned.com/api/v2/breaches)
 
 
 .breach
@@ -101,6 +105,8 @@ callback | function | yes      | `function (err, data) {}`
 pwned.breach ('foo@bar.com', yourCallback);
 ```
 
+[Example output](https://haveibeenpwned.com/api/v2/breach/Adobe)
+
 
 .pasteAccount
 -------------
@@ -119,6 +125,8 @@ callback | function | yes      | `function (err, data) {}`
 pwned.pasteAccount ('foo@bar.com', yourCallback);
 ```
 
+[Example output](https://haveibeenpwned.com/api/v2/pasteaccount/foo@bar.com)
+
 
 .dataclasses
 ------------
@@ -135,6 +143,8 @@ callback | function | yes      | `function (err, data) {}`
 ```js
 pwned.dataclasses (yourCallback);
 ```
+
+[Example output](https://haveibeenpwned.com/api/v2/dataclasses)
 
 
 License
