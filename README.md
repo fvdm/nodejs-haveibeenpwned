@@ -1,7 +1,7 @@
 haveibeenpwned
 ==============
 
-API methods for HaveIBeenPwnd.com (unofficial)
+API methods for Have I been pwned (unofficial)
 
 [![npm](https://img.shields.io/npm/v/haveibeenpwned.svg?maxAge=3600)](https://github.com/fvdm/nodejs-haveibeenpwned/blob/master/CHANGELOG.md)
 [![Build Status](https://travis-ci.org/fvdm/nodejs-haveibeenpwned.svg?branch=master)](https://travis-ci.org/fvdm/nodejs-haveibeenpwned)

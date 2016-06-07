@@ -5,7 +5,7 @@
     "url": "https://frankl.in"
   },
   "name": "haveibeenpwned",
-  "description": "API methods for HaveIBeenPwnd.com (unofficial)",
+  "description": "API methods for Have I been pwned (unofficial)",
   "version": "0.0.0",
   "repository": {
     "type": "git",
