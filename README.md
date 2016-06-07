@@ -46,6 +46,97 @@ var pwned = require ('haveibeenpwned') ({
 ```
 
 
+.breachedAccount
+----------------
+**( account, [params], callback )**
+
+All breaches for an account.
+
+
+argument | type     | required | description
+:--------|:---------|:---------|:--------------------------------
+account  | string   | yes      | Email or username to check
+params   | object   | no       | Additional parameters to include
+callback | function | yes      | `function (err, data) {}`
+
+
+```js
+pwned.breachedAccount ('foo@bar.com', yourCallback);
+```
+
+
+.breaches
+---------
+**( [params], callback )**
+
+All breaches in the system.
+
+
+argument | type     | required | description
+:--------|:---------|:---------|:--------------------------------
+params   | object   | no       | Additional parameters to include
+callback | function | yes      | `function (err, data) {}`
+
+
+```js
+pwned.breaches (yourCallback);
+```
+
+
+.breach
+-------
+**( name, [params], callback )**
+
+A single breached site.
+
+
+argument | type     | required | description
+:--------|:---------|:---------|:-----------------------------------
+name     | string   | yes      | Site name to check, i.e. `linkedin`
+params   | object   | no       | Additional parameters to include
+callback | function | yes      | `function (err, data) {}`
+
+
+```js
+pwned.breach ('foo@bar.com', yourCallback);
+```
+
+
+.pasteAccount
+-------------
+**( account, [params], callback )**
+
+All pastes for an account.
+
+
+argument | type     | required | description
+:--------|:---------|:---------|:--------------------------
+account  | string   | yes      | Email or username to check
+callback | function | yes      | `function (err, data) {}`
+
+
+```js
+pwned.pasteAccount ('foo@bar.com', yourCallback);
+```
+
+
+.dataclasses
+------------
+**( callback )**
+
+All pastes for an account.
+
+
+argument | type     | required | description
+:--------|:---------|:---------|:-------------------------
+callback | function | yes      | `function (err, data) {}`
+
+
+```js
+pwned.dataclasses (yourCallback);
+```
+
+
 License
 -------
 
