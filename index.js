@@ -47,18 +47,16 @@ function processResponse (err, res, callback) {
   if (res.statusCode === 404) {
     error = new Error ('not found');
     error.statusCode = res.statusCode;
-    callback (error);
-    return;
+    return callback (error);
   }
 
   try {
     data = JSON.parse (res.body);
   } catch (e) {
-    processApiError (res, e, callback);
-    return;
+    return processApiError (res, e, callback);
   }
 
-  callback (null, data);
+  return callback (null, data);
 }
 
 
