@@ -1,3 +1,14 @@
+#### 1.0.1 (2016-6-8)
+
+##### Documentation Changes
+
+* **badges:** Deeplink Gemnasium to runtime deps ([0e76b043](https://github.com/fvdm/nodejs-haveibeenpwned/commit/0e76b043fd9e7dd465366a12239edf6d6ef461bd))
+* **changelog:** Fixed missing types ([7f68a376](https://github.com/fvdm/nodejs-haveibeenpwned/commit/7f68a37695ca1f354989092e3bdd572155e2ad1e))
+
+##### Bug Fixes
+
+* **package:** Fixed bad git url copy ([eb9fb42f](https://github.com/fvdm/nodejs-haveibeenpwned/commit/eb9fb42f6f72f5f7ccd3292dfa137b0eb7f1afd1))
+
 ## 1.0.0 (2016-6-7)
 
 ##### Chores
