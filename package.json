@@ -9,7 +9,7 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/fvdm/nodejs-bitminter.git"
+    "url": "git://github.com/fvdm/nodejs-haveibeenpwned.git"
   },
   "bugs": {
     "url": "https://github.com/fvdm/nodejs-haveibeenpwned/issues"
