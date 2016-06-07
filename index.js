@@ -99,6 +99,20 @@ function httpRequest (service, param, parameters, callback) {
 
 
 /**
+/**
+ * All data classes in the system
+ *
+ * @callback callback
+ * @param [params] {object} - Additional parameters to include
+ * @param callback {function} - `function (err, data) {}`
+ * @returns {void}
+ */
+
+function methodDataclasses (callback) {
+  httpRequest ('dataclasses', '', callback);
+}
+
+
  * Module interface
  *
  * @param [set] {object} - Configuration params
@@ -109,5 +123,7 @@ function httpRequest (service, param, parameters, callback) {
 module.exports = function (set) {
   config.timeout = set.timeout || config.timeout;
 
-  return {};
+  return {
+    dataclasses: methodDataclasses
+  };
 };
