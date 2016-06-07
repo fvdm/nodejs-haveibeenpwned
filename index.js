@@ -99,6 +99,20 @@ function httpRequest (service, param, parameters, callback) {
 
 
 /**
+ * All breaches for an account
+ *
+ * @callback callback
+ * @param account {string} - Email or username
+ * @param [params] {object} - Additional parameters to include
+ * @param callback {function} - `function (err, data) {}`
+ * @returns {void}
+ */
+
+function methodBreachedAccount (account, params, callback) {
+  httpRequest ('breachedaccount', account, params, callback);
+}
+
+
 /**
  * All breached sites in the system
  *
@@ -157,6 +171,7 @@ function methodDataclasses (callback) {
 }
 
 
+/**
  * Module interface
  *
  * @param [set] {object} - Configuration params
@@ -168,6 +183,7 @@ module.exports = function (set) {
   config.timeout = set.timeout || config.timeout;
 
   return {
+    breachedAccount: methodBreachedAccount,
     breaches: methodBreaches,
     breach: methodBreach,
     pasteAccount: methodPasteAccount,
