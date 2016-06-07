@@ -128,6 +128,7 @@ dotest.add ('Error: not found', function (test) {
       .isError ('fail', 'err', err)
       .isExactly ('fail', 'err.message', err && err.message, 'not found')
       .isExactly ('fail', 'err.statusCode', err && err.statusCode, 404)
+      .isUndefined ('fail', 'data', data)
       .done ();
   });
 });
