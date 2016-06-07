@@ -104,7 +104,7 @@ pwned.breach ('foo@bar.com', yourCallback);
 
 .pasteAccount
 -------------
-**( account, [params], callback )**
+**( account, callback )**
 
 All pastes for an account.
 
