@@ -5,8 +5,8 @@ API methods for Have I been pwned (unofficial)
 
 [![npm](https://img.shields.io/npm/v/haveibeenpwned.svg?maxAge=3600)](https://github.com/fvdm/nodejs-haveibeenpwned/blob/master/CHANGELOG.md)
 [![Build Status](https://travis-ci.org/fvdm/nodejs-haveibeenpwned.svg?branch=master)](https://travis-ci.org/fvdm/nodejs-haveibeenpwned)
-[![Dependency Status](https://gemnasium.com/badges/github.com/fvdm/nodejs-haveibeenpwned.svg)](https://gemnasium.com/github.com/fvdm/nodejs-haveibeenpwned#runtime-dependencies)
 [![Coverage Status](https://coveralls.io/repos/github/fvdm/nodejs-haveibeenpwned/badge.svg?branch=master)](https://coveralls.io/github/fvdm/nodejs-haveibeenpwned?branch=master)
+[![bitHound Dependencies](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/badges/dependencies.svg)](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/master/dependencies/npm)
 
 
 * [Node.js](https://nodejs.org)
