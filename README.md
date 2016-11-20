@@ -7,6 +7,7 @@ API methods for Have I been pwned (unofficial)
 [![Build Status](https://travis-ci.org/fvdm/nodejs-haveibeenpwned.svg?branch=master)](https://travis-ci.org/fvdm/nodejs-haveibeenpwned)
 [![Coverage Status](https://coveralls.io/repos/github/fvdm/nodejs-haveibeenpwned/badge.svg?branch=master)](https://coveralls.io/github/fvdm/nodejs-haveibeenpwned?branch=master)
 [![bitHound Dependencies](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/badges/dependencies.svg)](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/master/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/badges/code.svg)](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned)
 
 
 * [Node.js](https://nodejs.org)
