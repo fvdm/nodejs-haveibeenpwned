@@ -133,7 +133,7 @@ dotest.add ('Method .dataclasses', function (test) {
 
 
 dotest.add ('Error: not found', function (test) {
-  pwned.breachedAccount ('info@example.net', function (err, data) {
+  pwned.breachedAccount ('info@invalid--example.net', function (err, data) {
     test ()
       .isError ('fail', 'err', err)
       .isExactly ('fail', 'err.message', err && err.message, 'not found')
