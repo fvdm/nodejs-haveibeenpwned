@@ -170,4 +170,4 @@ dotest.add ('Error: request timed out', function (test) {
 });
 
 
-dotest.run ();
+dotest.run (2000);
