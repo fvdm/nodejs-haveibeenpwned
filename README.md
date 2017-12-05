@@ -1,6 +1,8 @@
 haveibeenpwned
 ==============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fvdm/nodejs-haveibeenpwned.svg)](https://greenkeeper.io/)
+
 API methods for Have I been pwned (unofficial)
 
 [![npm](https://img.shields.io/npm/v/haveibeenpwned.svg?maxAge=3600)](https://github.com/fvdm/nodejs-haveibeenpwned/blob/master/CHANGELOG.md)
