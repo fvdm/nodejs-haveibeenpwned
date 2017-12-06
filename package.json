@@ -19,7 +19,7 @@
     "example.js"
   ],
   "dependencies": {
-    "httpreq": "^0.4.22"
+    "httpreq": "^0.4.24"
   },
   "devDependencies": {
     "coveralls": "^3.0.0",
