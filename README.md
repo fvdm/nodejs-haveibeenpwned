@@ -6,8 +6,8 @@ API methods for Have I been pwned (unofficial)
 [![npm](https://img.shields.io/npm/v/haveibeenpwned.svg?maxAge=3600)](https://github.com/fvdm/nodejs-haveibeenpwned/blob/master/CHANGELOG.md)
 [![Build Status](https://travis-ci.org/fvdm/nodejs-haveibeenpwned.svg?branch=master)](https://travis-ci.org/fvdm/nodejs-haveibeenpwned)
 [![Coverage Status](https://coveralls.io/repos/github/fvdm/nodejs-haveibeenpwned/badge.svg?branch=master)](https://coveralls.io/github/fvdm/nodejs-haveibeenpwned?branch=master)
-[![bitHound Dependencies](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/badges/dependencies.svg)](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/master/dependencies/npm)
-[![bitHound Code](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/badges/code.svg)](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned)
+[![bitHound Dependencies](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/badges/master/dependencies.svg)](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/master/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/badges/master/code.svg)](https://www.bithound.io/github/fvdm/nodejs-haveibeenpwned/master/files)
 [![Greenkeeper badge](https://badges.greenkeeper.io/fvdm/nodejs-haveibeenpwned.svg)](https://greenkeeper.io/)
 
 
