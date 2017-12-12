@@ -20,7 +20,7 @@ Example
 -------
 
 ```js
-var pwned = require ('haveibeenpwned') ();
+const pwned = require ('haveibeenpwned') ();
 
 pwned.breachedAccount ('foo@bar.com', function (err, data) {
   if (err) {
@@ -35,7 +35,7 @@ pwned.breachedAccount ('foo@bar.com', function (err, data) {
 Installation
 ------------
 
-`npm install haveibeenpwned --save`
+`npm i haveibeenpwned --save`
 
 
 Configuration
@@ -47,7 +47,7 @@ timeout | number | no       | 5000    | Request wait timeout in ms
 
 
 ```js
-var pwned = require ('haveibeenpwned') ({
+const pwned = require ('haveibeenpwned') ({
   timeout: 10000
 });
 ```
@@ -154,8 +154,8 @@ pwned.dataclasses (yourCallback);
 [Example output](https://haveibeenpwned.com/api/v2/dataclasses)
 
 
-License
--------
+Unicense
+--------
 
 This is free and unencumbered software released into the public domain.
 
