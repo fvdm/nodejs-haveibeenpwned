@@ -18,7 +18,7 @@ const config = {
 const pwned = app (config);
 
 
-dotest.add ('Module',test => {
+dotest.add ('Module', test => {
   test()
     .isFunction ('fail', 'exports', app)
     .isObject ('fail', 'interface', pwned)
@@ -31,7 +31,7 @@ dotest.add ('Module',test => {
 });
 
 
-dotest.add ('Method .breachedAccount - without params',test => {
+dotest.add ('Method .breachedAccount - without params', test => {
   pwned.breachedAccount ('foo@bar.com', (err, data) => {
     const item = data && data [0];
 
@@ -45,7 +45,7 @@ dotest.add ('Method .breachedAccount - without params',test => {
 });
 
 
-dotest.add ('Method .breachedAccount - with params',test => {
+dotest.add ('Method .breachedAccount - with params', test => {
   const params = {
     domain: 'acne.org'
   };
@@ -63,7 +63,7 @@ dotest.add ('Method .breachedAccount - with params',test => {
 });
 
 
-dotest.add ('Method .breaches - without params',test => {
+dotest.add ('Method .breaches - without params', test => {
   pwned.breaches ((err, data) => {
     const item = data && data [0];
 
@@ -77,7 +77,7 @@ dotest.add ('Method .breaches - without params',test => {
 });
 
 
-dotest.add ('Method .breaches - with params',test => {
+dotest.add ('Method .breaches - with params', test => {
   const params = {
     domain: 'linkedin.com'
   };
@@ -95,7 +95,7 @@ dotest.add ('Method .breaches - with params',test => {
 });
 
 
-dotest.add ('Method .breach',test => {
+dotest.add ('Method .breach', test => {
   pwned.breach ('LinkedIn', (err, data) => {
     test (err)
       .isObject ('fail', 'data', data)
@@ -105,7 +105,7 @@ dotest.add ('Method .breach',test => {
 });
 
 
-dotest.add ('Method .pasteAccount',test => {
+dotest.add ('Method .pasteAccount', test => {
   pwned.pasteAccount ('foo@bar.com', (err, data) => {
     const item = data && data [0];
 
@@ -119,7 +119,7 @@ dotest.add ('Method .pasteAccount',test => {
 });
 
 
-dotest.add ('Method .dataclasses',test => {
+dotest.add ('Method .dataclasses', test => {
   pwned.dataclasses ((err, data) => {
     const item = data && data [0];
 
@@ -132,7 +132,7 @@ dotest.add ('Method .dataclasses',test => {
 });
 
 
-dotest.add ('Error: not found',test => {
+dotest.add ('Error: not found', test => {
   pwned.breachedAccount ('info@invalid--example.net', (err, data) => {
     test()
       .isError ('fail', 'err', err)
@@ -144,7 +144,7 @@ dotest.add ('Error: not found',test => {
 });
 
 
-dotest.add ('Error: API error',test => {
+dotest.add ('Error: API error', test => {
   pwned.breachedAccount ('', (err, data) => {
     test()
       .isError ('fail', 'err', err)
@@ -155,7 +155,7 @@ dotest.add ('Error: API error',test => {
 });
 
 
-dotest.add ('Error: request timed out',test => {
+dotest.add ('Error: request timed out', test => {
   const tmp = app ({
     timeout: 1
   });
