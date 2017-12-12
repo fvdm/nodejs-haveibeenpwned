@@ -1,5 +1,5 @@
 // Load module
-var pwned = require ('haveibeenpwned') ();
+const pwned = require ('haveibeenpwned') ();
 
 // Fancy console.log
 function output (err, data) {
