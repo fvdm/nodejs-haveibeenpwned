@@ -8,18 +8,18 @@ License:      Unlicense (public domain, see LICENSE file)
 */
 
 
-var dotest = require ('dotest');
-var app = require ('./');
+const dotest = require ('dotest');
+const app = require ('./');
 
-var config = {
+const config = {
   timeout: process.env.Timeout || null
 };
 
-var pwned = app (config);
+const pwned = app (config);
 
 
-dotest.add ('Module', function (test) {
-  test ()
+dotest.add ('Module',test => {
+  test()
     .isFunction ('fail', 'exports', app)
     .isObject ('fail', 'interface', pwned)
     .isFunction ('fail', '.breachedAccount', pwned && pwned.breachedAccount)
@@ -27,101 +27,101 @@ dotest.add ('Module', function (test) {
     .isFunction ('fail', '.breach', pwned && pwned.breach)
     .isFunction ('fail', '.pasteAccount', pwned && pwned.pasteAccount)
     .isFunction ('fail', '.dataclasses', pwned && pwned.dataclasses)
-    .done ();
+    .done();
 });
 
 
-dotest.add ('Method .breachedAccount - without params', function (test) {
-  pwned.breachedAccount ('foo@bar.com', function (err, data) {
-    var item = data && data [0];
+dotest.add ('Method .breachedAccount - without params',test => {
+  pwned.breachedAccount ('foo@bar.com', (err, data) => {
+    const item = data && data [0];
 
     test (err)
       .isArray ('fail', 'data', data)
       .isNotEmpty ('fail', 'data', data)
       .isObject ('fail', 'data[0]', item)
       .isNotEmpty ('fail', 'data[0]', item)
-      .done ();
+      .done();
   });
 });
 
 
-dotest.add ('Method .breachedAccount - with params', function (test) {
-  var params = {
+dotest.add ('Method .breachedAccount - with params',test => {
+  const params = {
     domain: 'acne.org'
   };
 
-  pwned.breachedAccount ('foo@bar.com', params, function (err, data) {
-    var item = data && data [0];
+  pwned.breachedAccount ('foo@bar.com', params, (err, data) => {
+    const item = data && data [0];
 
     test (err)
       .isArray ('fail', 'data', data)
       .isNotEmpty ('fail', 'data', data)
       .isObject ('fail', 'data[0]', item)
       .isNotEmpty ('fail', 'data[0]', item)
-      .done ();
+      .done();
   });
 });
 
 
-dotest.add ('Method .breaches - without params', function (test) {
-  pwned.breaches (function (err, data) {
-    var item = data && data [0];
+dotest.add ('Method .breaches - without params',test => {
+  pwned.breaches ((err, data) => {
+    const item = data && data [0];
 
     test (err)
       .isArray ('fail', 'data', data)
       .isNotEmpty ('fail', 'data', data)
       .isObject ('fail', 'data[0]', item)
       .isNotEmpty ('fail', 'data[0]', item)
-      .done ();
+      .done();
   });
 });
 
 
-dotest.add ('Method .breaches - with params', function (test) {
-  var params = {
+dotest.add ('Method .breaches - with params',test => {
+  const params = {
     domain: 'linkedin.com'
   };
 
-  pwned.breaches (params, function (err, data) {
-    var item = data && data [0];
+  pwned.breaches (params, (err, data) => {
+    const item = data && data [0];
 
     test (err)
       .isArray ('fail', 'data', data)
       .isNotEmpty ('fail', 'data', data)
       .isObject ('fail', 'data[0]', item)
       .isNotEmpty ('fail', 'data[0]', item)
-      .done ();
+      .done();
   });
 });
 
 
-dotest.add ('Method .breach', function (test) {
-  pwned.breach ('LinkedIn', function (err, data) {
+dotest.add ('Method .breach',test => {
+  pwned.breach ('LinkedIn', (err, data) => {
     test (err)
       .isObject ('fail', 'data', data)
       .isNotEmpty ('fail', 'data', data)
-      .done ();
+      .done();
   });
 });
 
 
-dotest.add ('Method .pasteAccount', function (test) {
-  pwned.pasteAccount ('foo@bar.com', function (err, data) {
-    var item = data && data [0];
+dotest.add ('Method .pasteAccount',test => {
+  pwned.pasteAccount ('foo@bar.com', (err, data) => {
+    const item = data && data [0];
 
     test (err)
       .isArray ('fail', 'data', data)
       .isNotEmpty ('fail', 'data', data)
       .isObject ('fail', 'data[0]', item)
       .isNotEmpty ('fail', 'data[0]', item)
-      .done ();
+      .done();
   });
 });
 
 
-dotest.add ('Method .dataclasses', function (test) {
-  pwned.dataclasses (function (err, data) {
-    var item = data && data [0];
+dotest.add ('Method .dataclasses',test => {
+  pwned.dataclasses ((err, data) => {
+    const item = data && data [0];
 
     test (err)
       .isArray ('fail', 'data', data)
@@ -132,40 +132,40 @@ dotest.add ('Method .dataclasses', function (test) {
 });
 
 
-dotest.add ('Error: not found', function (test) {
-  pwned.breachedAccount ('info@invalid--example.net', function (err, data) {
-    test ()
+dotest.add ('Error: not found',test => {
+  pwned.breachedAccount ('info@invalid--example.net', (err, data) => {
+    test()
       .isError ('fail', 'err', err)
       .isExactly ('fail', 'err.message', err && err.message, 'not found')
       .isExactly ('fail', 'err.statusCode', err && err.statusCode, 404)
       .isUndefined ('fail', 'data', data)
-      .done ();
+      .done();
   });
 });
 
 
-dotest.add ('Error: API error', function (test) {
-  pwned.breachedAccount ('', function (err, data) {
-    test ()
+dotest.add ('Error: API error',test => {
+  pwned.breachedAccount ('', (err, data) => {
+    test()
       .isError ('fail', 'err', err)
       .isNumber ('fail', 'err.statusCode', err && err.statusCode)
       .isUndefined ('fail', 'data', data)
-      .done ();
+      .done();
   });
 });
 
 
-dotest.add ('Error: request timed out', function (test) {
-  var tmp = app ({
+dotest.add ('Error: request timed out',test => {
+  const tmp = app ({
     timeout: 1
   });
 
-  tmp.dataclasses (function (err, data) {
-    test ()
+  tmp.dataclasses ((err, data) => {
+    test()
       .isError ('fail', 'err', err)
       .isExactly ('fail', 'err.code', err && err.code, 'TIMEOUT')
       .isUndefined ('fail', 'data', data)
-      .done ();
+      .done();
   });
 });
 
