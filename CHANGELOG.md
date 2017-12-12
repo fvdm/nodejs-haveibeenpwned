@@ -1,3 +1,54 @@
+#### 1.0.3 (2017-12-12)
+
+##### Chores
+
+* **package:**
+  * Reduce dev deps to dotest ([fa9e1b13](https://github.com/fvdm/nodejs-haveibeenpwned/commit/fa9e1b1343c7d40d20975fada3ba09139bd9a918))
+  * Update dependencies ([e6bd733e](https://github.com/fvdm/nodejs-haveibeenpwned/commit/e6bd733eed52b014a9f4d43bb334b077ea3c47d9))
+  * Update dotest dev dep ([935f36a8](https://github.com/fvdm/nodejs-haveibeenpwned/commit/935f36a882e03f17036720188755b31ba3839872))
+  * Update dev deps ([69875d00](https://github.com/fvdm/nodejs-haveibeenpwned/commit/69875d00d42e8d1a0a726c381d6dfe8701817bf0))
+  * Replaced test runner and dev deps by dotest ([e14f8679](https://github.com/fvdm/nodejs-haveibeenpwned/commit/e14f86795d4986ee428989cb1a8b84b66ec58bd5))
+  * update eslint to version 3.0.0 ([36e2933a](https://github.com/fvdm/nodejs-haveibeenpwned/commit/36e2933a0e3b392ca612ebb03cb677f780c25dc9))
+* **develop:**
+  * Cleanup .gitignore ([70ca7760](https://github.com/fvdm/nodejs-haveibeenpwned/commit/70ca7760545d51c8f12a47ce84386b45fdc42b6a))
+  * Added bitHound config ([6f95c3e2](https://github.com/fvdm/nodejs-haveibeenpwned/commit/6f95c3e23a9e15cd3efc3f6b4c2902b6c418fbea))
+
+##### Documentation Changes
+
+* **readme:**
+  * Minor edits ([a995fec4](https://github.com/fvdm/nodejs-haveibeenpwned/commit/a995fec4ebe8ed81da6dfaa9cfb97ca07ec52f26))
+  * add Greenkeeper badge ([4bedee12](https://github.com/fvdm/nodejs-haveibeenpwned/commit/4bedee124a1e236444f1f22df1a5c12e54fac8f3))
+  * Add coffee link to Author ([253de0e9](https://github.com/fvdm/nodejs-haveibeenpwned/commit/253de0e9490d26ef7ea7fc2366a05dbc6dca5f43))
+* **badges:**
+  * Change bitHound to master ([b58a8cc4](https://github.com/fvdm/nodejs-haveibeenpwned/commit/b58a8cc44528bca752f452601e86db7136812307))
+  * Move Greenkeeper to badges ([44a4661a](https://github.com/fvdm/nodejs-haveibeenpwned/commit/44a4661a2b7fc42f3a8afb2a27785511c65fefb1))
+  * Added bitHound code quality ([d6a4f400](https://github.com/fvdm/nodejs-haveibeenpwned/commit/d6a4f400b682a16742230a3ad2e5147bb4dd4e5b))
+
+##### Refactors
+
+* **package:** Minimum supported node v4.0 ([6db83d62](https://github.com/fvdm/nodejs-haveibeenpwned/commit/6db83d62dbc831f783719acdc61fc91c5ac4cf36))
+
+##### Code Style Changes
+
+* **comment:** Fix JSdoc syntax ([64b1d22d](https://github.com/fvdm/nodejs-haveibeenpwned/commit/64b1d22dda27222caf2c6db2405891623713c77d))
+* **example:** ES6 syntax ([a81ba827](https://github.com/fvdm/nodejs-haveibeenpwned/commit/a81ba82715e28d25134c86a7a2770e1a4be9420d))
+
+##### Tests
+
+* **main:**
+  * Fix syntax typos ([3f9edd68](https://github.com/fvdm/nodejs-haveibeenpwned/commit/3f9edd68c1fe423ad581becb1b24e69e92c050e1))
+  * Pause 2 seconds between tests ([1df40fa6](https://github.com/fvdm/nodejs-haveibeenpwned/commit/1df40fa6fbba5f0231e07e6a423860740f2c5a89))
+  * Replaced invalid check example.net ([9619424f](https://github.com/fvdm/nodejs-haveibeenpwned/commit/9619424fdd7fb1a0310fae8c7d5e2d3ad590c992))
+* **config:**
+  * Allow 500 lines in .bithoundrc ([ac3f7f99](https://github.com/fvdm/nodejs-haveibeenpwned/commit/ac3f7f99e47726705dc935f980ca10b01aeab11d))
+  * Remove ecmaVersion from .eslintrc ([72840934](https://github.com/fvdm/nodejs-haveibeenpwned/commit/72840934b807a960e043d3db95a1a18102e34605))
+  * Update Travis CI node versions ([770ab612](https://github.com/fvdm/nodejs-haveibeenpwned/commit/770ab612c911e529287f85692378688b393609a7))
+  * Use dynamic node versions on Travis CI ([4fce2800](https://github.com/fvdm/nodejs-haveibeenpwned/commit/4fce2800772b6d941d62794f3fd8a5fa8e73390c))
+* **style:**
+  * Convert to ES6 syntax ([147f862c](https://github.com/fvdm/nodejs-haveibeenpwned/commit/147f862c3199d8c65a39c905b8235ed6b0adacf7))
+  * Cleanup intro comment ([06ee70d7](https://github.com/fvdm/nodejs-haveibeenpwned/commit/06ee70d76f723e297dac46c7ca21d00212416f59))
+* **lint:** Update eslint to ES6 ([d102da84](https://github.com/fvdm/nodejs-haveibeenpwned/commit/d102da84500bf55b8952b5b2883fc0ec2fcd92c1))
+
 #### 1.0.2 (2016-6-8)
 
 ##### Documentation Changes
