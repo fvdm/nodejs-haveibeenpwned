@@ -1,10 +1,10 @@
 /*
-  Name:         haveibeenpwned - index.js
-  Description:  API methods for HaveIBeenPwnd.com (unofficial)
-  Author:       Franklin van de Meent (https://frankl.in)
-  Source code:  https://github.com/fvdm/nodejs-haveibeenpwned
-  Feedback:     https://github.com/fvdm/nodejs-haveibeenpwned/issues
-  License:      Unlicense (public domain, see LICENSE file)
+Name:         haveibeenpwned - index.js
+Description:  API methods for HaveIBeenPwnd.com (unofficial)
+Author:       Franklin van de Meent (https://frankl.in)
+Source code:  https://github.com/fvdm/nodejs-haveibeenpwned
+Feedback:     https://github.com/fvdm/nodejs-haveibeenpwned/issues
+License:      Unlicense (public domain, see LICENSE file)
 */
 
 
@@ -19,11 +19,12 @@ var config = {
 /**
  * Process API error
  *
- * @callback callback
- * @param res {object} - httpreq response details
- * @param err {Error} - Additional Error to include
- * @param callback {function} - `function (err, data) {}`
- * @returns {void}
+ * @callback  callback
+ * @return    {void}
+ *
+ * @param     {object}    res       httpreq response details
+ * @param     {Error}     err       Additional Error to include
+ * @param     {function}  callback  `(err, data)`
  */
 
 function processApiError (res, err, callback) {
@@ -39,11 +40,12 @@ function processApiError (res, err, callback) {
 /**
  * Process HTTP response
  *
- * @callback callback
- * @param err {Error, null} - httpreq error
- * @param res {object} - httpreq response details
- * @param callback {function} - `function (err, data) {}`
- * @returns {void}
+ * @callback  callback
+ * @return    {void}
+ *
+ * @param     {Error|null}  err       httpreq error
+ * @param     {object}      res       httpreq response details
+ * @param     {function}    callback  `(err, data)`
  */
 
 function processResponse (err, res, callback) {
@@ -73,17 +75,18 @@ function processResponse (err, res, callback) {
 /**
  * Send HTTP request to API
  *
- * @callback callback
- * @param service {string} - API service name
- * @param param {string} - API service method name
- * @param [parameters] {object} - Additional parameters to include
- * @param callback {function} - `function (err, data) {}`
- * @returns {void}
+ * @callback  callback
+ * @return    {void}
+ *
+ * @param     {string}     service   API service name
+ * @param     {string}     method    API service method name
+ * @param     {object}     [params]  Additional parameters to include
+ * @param     {function}   callback  `(err, data)`
  */
 
-function httpRequest (service, param, parameters, callback) {
+function httpRequest (service, method, params, callback) {
   var options = {
-    url: 'https://haveibeenpwned.com/api/v2/' + service + '/' + param,
+    url: 'https://haveibeenpwned.com/api/v2/' + service + '/' + method,
     method: 'GET',
     timeout: config.timeout,
     headers: {
@@ -91,12 +94,12 @@ function httpRequest (service, param, parameters, callback) {
     }
   };
 
-  if (typeof parameters === 'function') {
-    callback = parameters;
-    parameters = {};
+  if (typeof params === 'function') {
+    callback = params;
+    params = {};
   }
 
-  options.parameters = parameters;
+  options.parameters = params;
 
   function doResponse (err, res) {
     processResponse (err, res, callback);
@@ -109,11 +112,12 @@ function httpRequest (service, param, parameters, callback) {
 /**
  * All breaches for an account
  *
- * @callback callback
- * @param account {string} - Email or username
- * @param [params] {object} - Additional parameters to include
- * @param callback {function} - `function (err, data) {}`
- * @returns {void}
+ * @callback  callback
+ * @return    {void}
+ *
+ * @param     {string}    account   Email or username
+ * @param     {object}    [params]  Additional parameters to include
+ * @param     {function}  callback  `(err, data)`
  */
 
 function methodBreachedAccount (account, params, callback) {
@@ -124,10 +128,11 @@ function methodBreachedAccount (account, params, callback) {
 /**
  * All breached sites in the system
  *
- * @callback callback
- * @param [params] {object} - Additional parameters to include
- * @param callback {function} - `function (err, data) {}`
- * @returns {void}
+ * @callback  callback
+ ^ @return    {void}
+ *
+ * @param     {object}    [params]  Additional parameters to include
+ * @param     {function}  callback  `(err, data)`
  */
 
 function methodBreaches (params, callback) {
@@ -138,11 +143,11 @@ function methodBreaches (params, callback) {
 /**
  * A single breached site
  *
- * @callback callback
- * @param name {string} - Email or username
- * @param [params] {object} - Additional parameters to include
- * @param callback {function} - `function (err, data) {}`
- * @returns {void}
+ * @callback  callback
+ * @return    {void}
+ *
+ * @param     {string}    name      Email or username
+ * @param     {function}  callback  `(err, data)`
  */
 
 function methodBreach (name, callback) {
@@ -153,10 +158,11 @@ function methodBreach (name, callback) {
 /**
  * All pastes for an account
  *
- * @callback callback
- * @param account {string} - Email or username
- * @param callback {function} - `function (err, data) {}`
- * @returns {void}
+ * @callback  callback
+ * @return    {void}
+ *
+ * @param     {string}    amount    Email or username
+ * @param     {function}  callback  `(err, data)`
  */
 
 function methodPasteAccount (account, callback) {
@@ -167,9 +173,10 @@ function methodPasteAccount (account, callback) {
 /**
  * All data classes in the system
  *
- * @callback callback
- * @param callback {function} - `function (err, data) {}`
- * @returns {void}
+ * @callback  callback
+ * @return    {void}
+ *
+ * @param     {function}  callback  `(err, data)`
  */
 
 function methodDataclasses (callback) {
@@ -180,9 +187,10 @@ function methodDataclasses (callback) {
 /**
  * Module interface
  *
- * @param [set] {object} - Configuration params
- * @param [set.timeout = 5000] {number} - Wait timeout in ms
- * @returns {object} - Methods
+ * @return  {object}                      Methods
+ *
+ * @param   {object}  set                 Configuration params
+ * @param   {int}     [set.timeout=5000]  Wait timeout in ms
  */
 
 module.exports = function (set) {
