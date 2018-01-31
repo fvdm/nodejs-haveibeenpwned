@@ -22,7 +22,7 @@ Example
 ```js
 const pwned = require ('haveibeenpwned') ();
 
-pwned.breachedAccount ('foo@bar.com', function (err, data) {
+pwned.breachedAccount ('foo@bar.com', (err, data) => {
   if (err) {
     return console.log (err);
   }
@@ -35,7 +35,7 @@ pwned.breachedAccount ('foo@bar.com', function (err, data) {
 Installation
 ------------
 
-`npm i haveibeenpwned --save`
+`npm i haveibeenpwned`
 
 
 Configuration
