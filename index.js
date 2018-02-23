@@ -185,6 +185,140 @@ function methodDataclasses (callback) {
 
 
 /**
+ * Send HTTP request to API
+ *
+ * @callback  callback
+ * @return    {void}
+ *
+ * @param     {string}     path      API method path
+ * @param     {object}     [params]  Additional parameters to include
+ * @param     {function}   callback  `(err, data)`
+ */
+
+function httpRequestPP (path, params, callback) {
+  var options = {
+    url: 'https://api.pwnedpasswords.com/' + path,
+    method: 'GET',
+    timeout: config.timeout,
+    headers: {
+      'User-Agent': config.userAgent
+    }
+  };
+
+  if (typeof params === 'function') {
+    callback = params;
+    params = {};
+  }
+
+  options.parameters = params;
+
+  httpreq.doRequest (options, (err, res) => {
+    let error;
+    let msg;
+
+    if (err) {
+      callback (err);
+    } else if (res.statusCode === 404) {
+      callback (null, 0);
+    } else if (res.statusCode >= 300) {
+      msg = res.body
+        .replace (/.+<p>(.+)<\/p>.+/, '$')
+        .trim();
+      error = new Error (msg);
+      error.statusCode = res.statusCode;
+      error.body = res.body;
+
+      callback (error);
+    } else {
+      callback (null, res.body);
+    }
+  });
+}
+
+
+/**
+ * Search the Pwned Passwords database for a password
+ *
+ * Password not found: callback `data` is {int} `0`
+ * Password found:     callback `data` is {int} amount
+ *
+ * @callback  callback
+ * @return    {void}
+ *
+ * @param     {string}    password  Password to check
+ * @param     {bool}      [hashed]  Is the password already SHA-1 hashed
+ * @param     {function}  callback  `(err, data)`
+ */
+
+function methodPwnedPasswordsByPassword (password, hashed, callback) {
+  var params = {};
+
+  if (typeof hashed === 'function') {
+    callback = hashed;
+    hashed = false;
+  }
+
+  if (hashed) {
+    params.originalPasswordIsAHash = 'true';
+  }
+
+  httpRequestPP ('pwnedpassword/' + password, params, (err, data) => {
+    if (err) {
+      callback (err);
+    } else {
+      callback (null, parseInt (data, 10));
+    }
+  });
+}
+
+
+/**
+ * Search the Pwned Passwords database for the first 5 chars of a hash
+ * and callback the matched hashed with their counts.
+ *
+ * Not found: callback `data` is {int} `0`
+ * Found:     callback `data` is {object}
+ *
+ * @callback  callback
+ * @return    {void}
+ *
+ * @param     {string}    hash      SHA-1 hash to check
+ * @param     {function}  callback  `(err, data)`
+ */
+
+function methodPwnedPasswordsByRange (hash, callback) {
+  hash = hash.substr (0, 5);
+
+  httpRequestPP ('range/' + hash, (err, data) => {
+    let result = {};
+    let i;
+    let str;
+    let sha;
+
+    if (err) {
+      callback (err);
+      return;
+    }
+
+    data = data.trim().split ('\n');
+
+    if (data.length) {
+      for (i = 0; i < data.length; i++) {
+        str = data[i].split (':');
+        sha = str[0].toLowerCase();
+        result[sha] = parseInt (str[1], 10);
+      }
+
+      callback (null, result);
+      return;
+    }
+
+    callback (null, 0);
+  });
+}
+
+
+/**
  * Module interface
  *
  * @return  {object}                      Methods
@@ -201,6 +335,10 @@ module.exports = function (set) {
     breaches: methodBreaches,
     breach: methodBreach,
     pasteAccount: methodPasteAccount,
-    dataclasses: methodDataclasses
+    dataclasses: methodDataclasses,
+    pwnedpasswords: {
+      byPassword: methodPwnedPasswordsByPassword,
+      byRange: methodPwnedPasswordsByRange
+    }
   };
 };
