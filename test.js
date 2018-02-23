@@ -230,7 +230,9 @@ dotest.add ('Method .pwnedpasswords.byRange - sorted', test => {
 
   pwned.pwnedpasswords.byRange (hash, true, (err, data) => {
     const item = data && data['37d0679ca88db6464eac60da96345513964'];
-    const values = Object.values (data);
+    const values = Object.keys (data).map (key => {
+      return data [key];
+    });
     const first = values.shift();
     const second = values.shift();
     const third = values.shift();
