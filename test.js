@@ -18,6 +18,9 @@ const config = {
 
 const pwned = app (config);
 
+const testPass = 'doesnt-exist,' + Date.now();
+
+
 /**
  * Generate SHA-1 hash from a string
  *
@@ -162,6 +165,77 @@ dotest.add ('Method .dataclasses', test => {
 });
 
 
+dotest.add ('Method .pwnedpassword.byPassword - plain, none found', test => {
+  pwned.pwnedpasswords.byPassword (testPass, (err, data) => {
+    test (err)
+      .info ('Password: ' + testPass)
+      .info (' ')
+      .isNull ('fail', 'err', err)
+      .isExactly ('fail', 'data', data, 0)
+      .done();
+  });
+});
+
+
+dotest.add ('Method .pwnedpasswords.byPassword - hashed, none found', test => {
+  const hash = hashSha1 (testPass);
+
+  pwned.pwnedpasswords.byPassword (hash, true, (err, data) => {
+    test (err)
+      .info ('Password: ' + testPass)
+      .info ('Hash:     ' + hash)
+      .info (' ')
+      .isNull ('fail', 'err', err)
+      .isExactly ('fail', 'data', data, 0)
+      .done();
+  });
+});
+
+
+dotest.add ('Method .pwnedpasswords.byPassword - plain, results', test => {
+  pwned.pwnedpasswords.byPassword ('12345', (err, data) => {
+    test (err)
+      .info ('Password: 12345')
+      .info (' ')
+      .isNull ('fail', 'err', err)
+      .isNumber ('fail', 'data', data)
+      .isCondition ('fail', 'data', data, '>', 0)
+      .done();
+  });
+});
+
+
+dotest.add ('Method .pwnedpasswords.byRange - results', test => {
+  const hash = hashSha1 ('12345');
+
+  pwned.pwnedpasswords.byRange (hash, (err, data) => {
+    const item = data && data['37d0679ca88db6464eac60da96345513964'];
+
+    test (err)
+      .info ('Password: 12345')
+      .info ('Hash:     ' + hash)
+      .info ('Item:     37d0679ca88db6464eac60da96345513964')
+      .info (' ')
+      .isNull ('fail', 'err', err)
+      .isObject ('fail', 'data', data)
+      .isNumber ('fail', 'data[item]', item)
+      .isCondition ('fail', 'data[item]', item, '>', 0)
+      .done();
+  });
+});
+
+
+dotest.add ('Error: invalid hash prefix', test => {
+  pwned.pwnedpasswords.byRange ('test', (err, data) => {
+    test ()
+      .isError ('fail', 'err', err)
+      .isExactly ('warn', 'err.message', err && err.message, 'The hash prefix was not in a valid format')
+      .isUndefined ('fail', 'data', data)
+      .done();
+  });
+});
+
+
 dotest.add ('Error: not found', test => {
   pwned.breachedAccount ('info@invalid--example.net', (err, data) => {
     test()
@@ -185,12 +259,27 @@ dotest.add ('Error: API error', test => {
 });
 
 
-dotest.add ('Error: request timed out', test => {
+dotest.add ('Error: request timed out - haveibeenpwned API', test => {
   const tmp = app ({
     timeout: 1
   });
 
   tmp.dataclasses ((err, data) => {
+    test()
+      .isError ('fail', 'err', err)
+      .isExactly ('fail', 'err.code', err && err.code, 'TIMEOUT')
+      .isUndefined ('fail', 'data', data)
+      .done();
+  });
+});
+
+
+dotest.add ('Error: request timed out - pwnedpasswords API', test => {
+  const tmp = app ({
+    timeout: 1
+  });
+
+  tmp.pwnedpasswords.byPassword ('test', (err, data) => {
     test()
       .isError ('fail', 'err', err)
       .isExactly ('fail', 'err.code', err && err.code, 'TIMEOUT')
