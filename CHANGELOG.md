@@ -1,3 +1,38 @@
+### 1.1.0 (2018-02-23)
+
+##### Chores
+
+* **package:**  update dotest to version 2.3.0 ([c098f8bc](https://github.com/fvdm/nodejs-haveibeenpwned/commit/c098f8bc4ec4d948a1f48ac0d465cc62f283a310))
+
+##### Documentation Changes
+
+* **readme:**
+  *  Add Pwned Passwords methods ([793d2f71](https://github.com/fvdm/nodejs-haveibeenpwned/commit/793d2f71a306b8a9ec1a6b499fb82937d98807a6))
+  *  Minor clean up ([260a7819](https://github.com/fvdm/nodejs-haveibeenpwned/commit/260a78190a5cf01cd983e1c44af0aa5fc19656eb))
+
+##### New Features
+
+* **byRange:**  Add optional sorting ([49ee72d7](https://github.com/fvdm/nodejs-haveibeenpwned/commit/49ee72d70e3cfd4b1764caef192d0e7e4de73225))
+* **httpRequestPP:**  Pwned Passwords methods ([ec1020c0](https://github.com/fvdm/nodejs-haveibeenpwned/commit/ec1020c0c7cd3be590b0a65673aac04612f22c7b))
+
+##### Refactors
+
+* **export:**  Cleaner timeout setting ([58f17aa9](https://github.com/fvdm/nodejs-haveibeenpwned/commit/58f17aa9397bce12fb33220c212f9a39544d7cf8))
+* **httpRequest:**  Renamed to httpRequestHIBP ([418f5eb5](https://github.com/fvdm/nodejs-haveibeenpwned/commit/418f5eb56d1c523899bea970ba5f4ea65507f4f0))
+
+##### Code Style Changes
+
+* **syntax:**  Clean up and modernization ([d70ef7f0](https://github.com/fvdm/nodejs-haveibeenpwned/commit/d70ef7f04cb10e038446382696de15ccdf5269f6))
+* **readme:**  Better parsable syntax ([5803e5d6](https://github.com/fvdm/nodejs-haveibeenpwned/commit/5803e5d6358c7fdf79db5d17e80de3588efec5be))
+
+##### Tests
+
+* **main:**
+  *  Bypass Node v6.13.0 missing Object.values ([ef3f7766](https://github.com/fvdm/nodejs-haveibeenpwned/commit/ef3f776660b1a328c1d66160caea719c65541fdd))
+  *  Method tests for pwnedpasswords ([f05ccc4c](https://github.com/fvdm/nodejs-haveibeenpwned/commit/f05ccc4c72ca5ad8bdbc052b0593fad87c9f3d39))
+  *  Interface checks for pwnedpasswords ([44273e53](https://github.com/fvdm/nodejs-haveibeenpwned/commit/44273e534053ecd59ab4f250d7362fe643ee292c))
+  *  Add SHA-1 hash function ([f85570c3](https://github.com/fvdm/nodejs-haveibeenpwned/commit/f85570c384df5762b9d43b99c11531d1587ef365))
+
 #### 1.0.3 (2017-12-12)
 
 ##### Chores
