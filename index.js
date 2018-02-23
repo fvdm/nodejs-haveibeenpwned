@@ -84,7 +84,7 @@ function processResponse (err, res, callback) {
  * @param     {function}   callback  `(err, data)`
  */
 
-function httpRequest (service, method, params, callback) {
+function httpRequestHIBP (service, method, params, callback) {
   var options = {
     url: 'https://haveibeenpwned.com/api/v2/' + service + '/' + method,
     method: 'GET',
@@ -121,7 +121,7 @@ function httpRequest (service, method, params, callback) {
  */
 
 function methodBreachedAccount (account, params, callback) {
-  httpRequest ('breachedaccount', account, params, callback);
+  httpRequestHIBP ('breachedaccount', account, params, callback);
 }
 
 
@@ -136,7 +136,7 @@ function methodBreachedAccount (account, params, callback) {
  */
 
 function methodBreaches (params, callback) {
-  httpRequest ('breaches', '', params, callback);
+  httpRequestHIBP ('breaches', '', params, callback);
 }
 
 
@@ -151,7 +151,7 @@ function methodBreaches (params, callback) {
  */
 
 function methodBreach (name, callback) {
-  httpRequest ('breach', name, callback);
+  httpRequestHIBP ('breach', name, callback);
 }
 
 
@@ -166,7 +166,7 @@ function methodBreach (name, callback) {
  */
 
 function methodPasteAccount (account, callback) {
-  httpRequest ('pasteaccount', account, callback);
+  httpRequestHIBP ('pasteaccount', account, callback);
 }
 
 
@@ -180,7 +180,7 @@ function methodPasteAccount (account, callback) {
  */
 
 function methodDataclasses (callback) {
-  httpRequest ('dataclasses', '', callback);
+  httpRequestHIBP ('dataclasses', '', callback);
 }
 
 
