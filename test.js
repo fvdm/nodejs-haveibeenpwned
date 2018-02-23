@@ -225,6 +225,32 @@ dotest.add ('Method .pwnedpasswords.byRange - results', test => {
 });
 
 
+dotest.add ('Method .pwnedpasswords.byRange - sorted', test => {
+  const hash = hashSha1 ('12345');
+
+  pwned.pwnedpasswords.byRange (hash, true, (err, data) => {
+    const item = data && data['37d0679ca88db6464eac60da96345513964'];
+    const values = Object.values (data);
+    const first = values.shift();
+    const second = values.shift();
+    const third = values.shift();
+
+    test (err)
+      .info ('Password: 12345')
+      .info ('Hash:     ' + hash)
+      .info ('Item:     37d0679ca88db6464eac60da96345513964')
+      .info (' ')
+      .isNull ('fail', 'err', err)
+      .isObject ('fail', 'data', data)
+      .isNumber ('fail', 'data[item]', item)
+      .isCondition ('fail', 'data[item]', item, '>', 0)
+      .isCondition ('fail', 'order 1 vs 2', first, '>', second)
+      .isCondition ('fail', 'order 2 vs 3', second, '>', third)
+      .done();
+  });
+});
+
+
 dotest.add ('Error: invalid hash prefix', test => {
   pwned.pwnedpasswords.byRange ('test', (err, data) => {
     test ()

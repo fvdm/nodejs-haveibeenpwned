@@ -17,6 +17,43 @@ var config = {
 
 
 /**
+ * Sort an object by its values
+ * in descending order
+ *
+ * @return  {object}       The sorted object
+ * @param   {object}  obj  The object to sort
+ */
+
+function sortObjectByValues (obj) {
+  let sorting = [];
+  let result = {};
+  let key;
+
+  for (key in obj) {
+    sorting.push ({ key, count: obj [key] });
+  }
+
+  sorting.sort ((a, b) => {
+    if (a.count > b.count) {
+      return -1;
+    }
+
+    if (a.count < b.count) {
+      return 1;
+    }
+
+    return 0;
+  });
+
+  sorting.forEach (itm => {
+    result [itm.key] = itm.count;
+  });
+
+  return result;
+}
+
+
+/**
  * Process API error
  *
  * @callback  callback
@@ -283,11 +320,17 @@ function methodPwnedPasswordsByPassword (password, hashed, callback) {
  * @return    {void}
  *
  * @param     {string}    hash      SHA-1 hash to check
+ * @param     {bool}      [sort]    Sort by counts in descending order
  * @param     {function}  callback  `(err, data)`
  */
 
-function methodPwnedPasswordsByRange (hash, callback) {
+function methodPwnedPasswordsByRange (hash, sort, callback) {
   hash = hash.substr (0, 5);
+
+  if (typeof sort === 'function') {
+    callback = sort;
+    sort = false;
+  }
 
   httpRequestPP ('range/' + hash, (err, data) => {
     let result = {};
@@ -307,6 +350,10 @@ function methodPwnedPasswordsByRange (hash, callback) {
         str = data[i].split (':');
         sha = str[0].toLowerCase();
         result[sha] = parseInt (str[1], 10);
+      }
+
+      if (sort) {
+        result = sortObjectByValues (result);
       }
 
       callback (null, result);
