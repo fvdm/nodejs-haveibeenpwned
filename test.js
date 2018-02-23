@@ -9,6 +9,7 @@ License:      Unlicense (public domain, see LICENSE file)
 
 
 const dotest = require ('dotest');
+const crypto = require ('crypto');
 const app = require ('./');
 
 const config = {
@@ -16,6 +17,21 @@ const config = {
 };
 
 const pwned = app (config);
+
+/**
+ * Generate SHA-1 hash from a string
+ *
+ * @return  {string}       SHA-1 hash as hex string
+ * @param   {mixed}   str  Data to hash
+ */
+
+function hashSha1 (str) {
+  return crypto
+    .createHash ('sha1')
+    .update (str)
+    .digest ('hex');
+}
+
 
 
 dotest.add ('Module', test => {
