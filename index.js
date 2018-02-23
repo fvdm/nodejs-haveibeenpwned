@@ -328,7 +328,9 @@ function methodPwnedPasswordsByRange (hash, callback) {
  */
 
 module.exports = function (set) {
-  config.timeout = set && set.timeout || config.timeout;
+  if (set && set.timeout) {
+    config.timeout = set.timeout;
+  }
 
   return {
     breachedAccount: methodBreachedAccount,
