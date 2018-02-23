@@ -8,9 +8,9 @@ License:      Unlicense (public domain, see LICENSE file)
 */
 
 
-var httpreq = require ('httpreq');
+const httpreq = require ('httpreq');
 
-var config = {
+let config = {
   timeout: 5000,
   userAgent: 'nodejs-haveibeenpwned (https://github.com/fvdm/nodejs-haveibeenpwned)'
 };
@@ -65,7 +65,7 @@ function sortObjectByValues (obj) {
  */
 
 function processApiError (res, err, callback) {
-  var error = new Error ('API error');
+  let error = new Error ('API error');
 
   error.statusCode = res.statusCode;
   error.body = res.body;
@@ -86,8 +86,8 @@ function processApiError (res, err, callback) {
  */
 
 function processResponse (err, res, callback) {
-  var data;
-  var error;
+  let data;
+  let error;
 
   if (err) {
     return callback (err);
@@ -122,7 +122,7 @@ function processResponse (err, res, callback) {
  */
 
 function httpRequestHIBP (service, method, params, callback) {
-  var options = {
+  let options = {
     url: 'https://haveibeenpwned.com/api/v2/' + service + '/' + method,
     method: 'GET',
     timeout: config.timeout,
@@ -138,11 +138,9 @@ function httpRequestHIBP (service, method, params, callback) {
 
   options.parameters = params;
 
-  function doResponse (err, res) {
+  httpreq.doRequest (options, (err, res) => {
     processResponse (err, res, callback);
-  }
-
-  httpreq.doRequest (options, doResponse);
+  });
 }
 
 
@@ -233,7 +231,7 @@ function methodDataclasses (callback) {
  */
 
 function httpRequestPP (path, params, callback) {
-  var options = {
+  let options = {
     url: 'https://api.pwnedpasswords.com/' + path,
     method: 'GET',
     timeout: config.timeout,
@@ -288,7 +286,7 @@ function httpRequestPP (path, params, callback) {
  */
 
 function methodPwnedPasswordsByPassword (password, hashed, callback) {
-  var params = {};
+  let params = {};
 
   if (typeof hashed === 'function') {
     callback = hashed;
@@ -374,7 +372,7 @@ function methodPwnedPasswordsByRange (hash, sort, callback) {
  * @param   {int}     [set.timeout=5000]  Wait timeout in ms
  */
 
-module.exports = function (set) {
+module.exports = set => {
   if (set && set.timeout) {
     config.timeout = set.timeout;
   }
