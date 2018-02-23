@@ -33,17 +33,31 @@ function hashSha1 (str) {
 }
 
 
+dotest.add ('Interface', test => {
+  const pp = pwned && pwned.pwnedpasswords;
 
-dotest.add ('Module', test => {
   test()
     .isFunction ('fail', 'exports', app)
     .isObject ('fail', 'interface', pwned)
-    .isFunction ('fail', '.breachedAccount', pwned && pwned.breachedAccount)
-    .isFunction ('fail', '.breaches', pwned && pwned.breaches)
-    .isFunction ('fail', '.breach', pwned && pwned.breach)
-    .isFunction ('fail', '.pasteAccount', pwned && pwned.pasteAccount)
-    .isFunction ('fail', '.dataclasses', pwned && pwned.dataclasses)
-    .done();
+    .isObject ('fail', '.pwnedpasswords', pp);
+
+  if (pwned) {
+    test()
+      .isFunction ('fail', '.breachedAccount', pwned.breachedAccount)
+      .isFunction ('fail', '.breaches', pwned.breaches)
+      .isFunction ('fail', '.breach', pwned.breach)
+      .isFunction ('fail', '.pasteAccount', pwned.pasteAccount)
+      .isFunction ('fail', '.dataclasses', pwned.dataclasses);
+  }
+
+  if (pp) {
+    test()
+      .isFunction ('fail', '.pwnedpasswords.byPassword', pp && pp.byPassword)
+      .isFunction ('fail', '.pwnedpasswords.byRange', pp && pp.byRange);
+  }
+
+
+  test().done();
 });
 
 
