@@ -49,6 +49,16 @@ const pwned = require ('haveibeenpwned') ({
 ```
 
 
+# Have I Been Pwned
+
+Below are the methods for the main Have I Been Pwned API.
+
+For simplicity no error handling is included in the callback examples.
+It's straightforward: when there is a problem `err` is an instance of
+_Error_ and `data` is _undefined_, otherwise `err` is _null_ and
+`data` is set to the result.
+
+
 ## .breachedAccount
 
 **( account, [params], callback )**
@@ -148,6 +158,99 @@ hibp.dataclasses (yourCallback);
 ```
 
 [Example output](https://haveibeenpwned.com/api/v2/dataclasses)
+
+
+# Pwned Passwords
+
+Below are the methods for the Pwned Passwords API.
+
+
+## .pwnedpasswords.byPassword
+
+**( password, [hashed], callback )**
+
+Check if a password was leaked.
+The `data` is `0` (int) when none were found.
+
+
+argument | type     | default | description
+:--------|:---------|:--------|:---------------------
+password | string   |         | The password to check
+hashed   | bool     | false   | Is the password already SHA-1 hashed
+callback | function |         | `(err, data)`
+
+
+
+```js
+hibp.pwnedpasswords.byPassword ('secret', (err, count) => {
+  if (!count) {
+    console.log ('Great! Password is not found.');
+  } else {
+    console.log ('Oops! Password was found ' + count + ' times!');
+  }
+});
+
+// -> Oops! Password was found 195263 times!
+```
+
+
+## .pwnedpasswords.byRange
+
+**( hash, [sort], callback )**
+
+Get password hashes similar to the first 5 characters of the SHA-1 hash
+provided. The callback `data` is an *object* where the keys are the
+lowercase hashes and the values are the number of times they were used.
+When nothing is found `data` is `0` (int).
+
+A hash longer then 5 characters is truncated before being sent to the API
+and can be in uppercase or lowercase.
+
+
+argument | type     | default | description
+:--------|:---------|:--------|:-----------------------
+hash     | string   |         | The SHA-1 hash to check
+sort     | bool     | false   | Sort by counts in descending order
+callback | function |         | `(err, data)`
+
+
+### Sorted by key (default)
+
+```js
+hibp.pwnedpasswords.byRange ('abcdef', (err, data) => {
+  for (sha in data) {
+    console.log ('%s  %i x', sha, data[sha]);
+  }
+});
+```
+
+
+### Sorted by use counts
+
+```js
+hibp.pwnedpasswords.byRange ('abcdef', true, (err, data) => {
+  const count = Object.keys (data).length;
+  let i = 1;
+
+  console.log ('Found %i matches', count);
+  console.log ('Top 3:');
+
+  for (sha in data) {
+    console.log ('%i  %s  %i x', i, sha, data[sha]);
+
+    // stop after 3
+    if (i === 3) { break; }
+    i++;
+  }
+});
+
+// ->
+// Found 511 matches
+// Top 3:
+// 1  3b8a55c2b3bf42b83e41f0f95a4149043f6  336 x
+// 2  6a7fc410810db77855d9dfe5b94b95196f7  304 x
+// 3  73a1a21a7b13b50536df19fd586abdf3145  193 x
+```
 
 
 # Unicense
