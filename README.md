@@ -1,5 +1,4 @@
-haveibeenpwned
-==============
+# haveibeenpwned
 
 API methods for Have I been pwned (unofficial)
 
@@ -16,13 +15,12 @@ API methods for Have I been pwned (unofficial)
 * [API documentation](https://haveibeenpwned.com/API/v2)
 
 
-Example
--------
+# Example
 
 ```js
-const pwned = require ('haveibeenpwned') ();
+const hibp = require ('haveibeenpwned') ();
 
-pwned.breachedAccount ('foo@bar.com', (err, data) => {
+hibp.breachedAccount ('foo@bar.com', (err, data) => {
   if (err) {
     return console.log (err);
   }
@@ -32,14 +30,12 @@ pwned.breachedAccount ('foo@bar.com', (err, data) => {
 ```
 
 
-Installation
-------------
+# Installation
 
 `npm i haveibeenpwned`
 
 
-Configuration
--------------
+# Configuration
 
 name    | type   | required | default | description
 :-------|:-------|:---------|:--------|:--------------------------
@@ -53,8 +49,8 @@ const pwned = require ('haveibeenpwned') ({
 ```
 
 
-.breachedAccount
-----------------
+## .breachedAccount
+
 **( account, [params], callback )**
 
 All breaches for an account.
@@ -68,14 +64,14 @@ callback | function | yes      | `function (err, data) {}`
 
 
 ```js
-pwned.breachedAccount ('foo@bar.com', yourCallback);
+hibp.breachedAccount ('foo@bar.com', yourCallback);
 ```
 
 [Example output](https://haveibeenpwned.com/api/v2/breachedaccount/foo@bar.com)
 
 
-.breaches
----------
+## .breaches
+
 **( [params], callback )**
 
 All breaches in the system.
@@ -88,14 +84,14 @@ callback | function | yes      | `function (err, data) {}`
 
 
 ```js
-pwned.breaches (yourCallback);
+hibp.breaches (yourCallback);
 ```
 
 [Example output](https://haveibeenpwned.com/api/v2/breaches)
 
 
-.breach
--------
+## .breach
+
 **( name, [params], callback )**
 
 A single breached site.
@@ -109,14 +105,14 @@ callback | function | yes      | `function (err, data) {}`
 
 
 ```js
-pwned.breach ('Adobe', yourCallback);
+hibp.breach ('Adobe', yourCallback);
 ```
 
 [Example output](https://haveibeenpwned.com/api/v2/breach/Adobe)
 
 
-.pasteAccount
--------------
+## .pasteAccount
+
 **( account, callback )**
 
 All pastes for an account.
@@ -129,14 +125,14 @@ callback | function | yes      | `function (err, data) {}`
 
 
 ```js
-pwned.pasteAccount ('foo@bar.com', yourCallback);
+hibp.pasteAccount ('foo@bar.com', yourCallback);
 ```
 
 [Example output](https://haveibeenpwned.com/api/v2/pasteaccount/foo@bar.com)
 
 
-.dataclasses
-------------
+## .dataclasses
+
 **( callback )**
 
 All pastes for an account.
@@ -148,14 +144,13 @@ callback | function | yes      | `function (err, data) {}`
 
 
 ```js
-pwned.dataclasses (yourCallback);
+hibp.dataclasses (yourCallback);
 ```
 
 [Example output](https://haveibeenpwned.com/api/v2/dataclasses)
 
 
-Unicense
---------
+# Unicense
 
 This is free and unencumbered software released into the public domain.
 
@@ -183,8 +178,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 For more information, please refer to <http://unlicense.org>
 
 
-Author
-------
+# Author
 
 [Franklin van de Meent](https://frankl.in)
 
