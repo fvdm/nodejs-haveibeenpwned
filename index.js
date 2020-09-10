@@ -9,6 +9,7 @@ License:      Unlicense (public domain, see LICENSE file)
 
 
 const httpreq = require ('httpreq');
+const promiseSupport = typeof Promise !== "undefined" && Promise.toString().indexOf("[native code]") !== -1;
 
 let config = {
   timeout: 5000,
@@ -65,12 +66,13 @@ function sortObjectByValues (obj) {
  */
 
 function processApiError (res, err, callback) {
+  const usePromise = promiseSupport && (!callback || typeof callback !== 'function');
   let error = new Error ('API error');
 
   error.statusCode = res.statusCode;
   error.body = res.body;
   error.error = err;
-  callback (error);
+  usePromise ? Promise.reject(error) : callback (error);
 }
 
 
@@ -86,17 +88,18 @@ function processApiError (res, err, callback) {
  */
 
 function processResponse (err, res, callback) {
+  const usePromise = promiseSupport && (!callback || typeof callback !== 'function');
   let data;
   let error;
 
   if (err) {
-    return callback (err);
+    return usePromise ? Promise.reject(err) : callback (err);
   }
 
   if (res.statusCode === 404) {
     error = new Error ('not found');
     error.statusCode = res.statusCode;
-    return callback (error);
+    return usePromise ? Promise.reject(error) : callback (error);
   }
 
   try {
@@ -105,7 +108,7 @@ function processResponse (err, res, callback) {
     return processApiError (res, e, callback);
   }
 
-  return callback (null, data);
+  return usePromise ? Promise.resolve(data) : callback (null, data);
 }
 
 

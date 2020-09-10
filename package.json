@@ -1,45 +1,45 @@
 {
-  "author": {
-    "name": "Franklin van de Meent",
-    "email": "fr@nkl.in",
-    "url": "https://frankl.in"
-  },
-  "name": "haveibeenpwned",
-  "description": "API methods for Have I been pwned (unofficial)",
-  "version": "1.1.0",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/fvdm/nodejs-haveibeenpwned.git"
-  },
-  "bugs": {
-    "url": "https://github.com/fvdm/nodejs-haveibeenpwned/issues"
-  },
-  "main": "index.js",
-  "files": [
-    "example.js"
-  ],
-  "dependencies": {
-    "httpreq": "^0.4.24"
-  },
-  "devDependencies": {
-    "dotest": "^2.3.0"
-  },
-  "engines": {
-    "node": ">=4.0.0"
-  },
-  "scripts": {
-    "test": "dotest"
-  },
-  "tonicExampleFilename": "example.js",
-  "keywords": [
-    "api",
-    "breach",
-    "infosec",
-    "hacking",
-    "haveibeenpwned",
-    "security",
-    "password",
-    "passwords"
-  ],
-  "license": "Unlicense"
+	"author": {
+		"name": "Franklin van de Meent",
+		"email": "fr@nkl.in",
+		"url": "https://frankl.in"
+	},
+	"name": "haveibeenpwned",
+	"description": "API methods for Have I been pwned (unofficial)",
+	"version": "1.1.0",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/fvdm/nodejs-haveibeenpwned.git"
+	},
+	"bugs": {
+		"url": "https://github.com/fvdm/nodejs-haveibeenpwned/issues"
+	},
+	"main": "index.js",
+	"files": [
+		"example.js"
+	],
+	"dependencies": {
+		"httpreq": "^0.4.24"
+	},
+	"devDependencies": {
+		"dotest": "^2.3.0"
+	},
+	"engines": {
+		"node": ">=4.0.0"
+	},
+	"scripts": {
+		"test": "dotest"
+	},
+	"tonicExampleFilename": "example.js",
+	"keywords": [
+		"api",
+		"breach",
+		"infosec",
+		"hacking",
+		"haveibeenpwned",
+		"security",
+		"password",
+		"passwords"
+	],
+	"license": "Unlicense"
 }
