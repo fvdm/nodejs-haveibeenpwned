@@ -3,9 +3,8 @@
 API methods for Have I been pwned (unofficial)
 
 [![npm](https://img.shields.io/npm/v/haveibeenpwned.svg?maxAge=3600)](https://github.com/fvdm/nodejs-haveibeenpwned/blob/master/CHANGELOG.md)
-[![Build Status](https://travis-ci.org/fvdm/nodejs-haveibeenpwned.svg?branch=master)](https://travis-ci.org/fvdm/nodejs-haveibeenpwned)
+[![Build Status](https://api.travis-ci.com/fvdm/nodejs-haveibeenpwned.svg?branch=master)](https://travis-ci.com/github/fvdm/nodejs-haveibeenpwned)
 [![Coverage Status](https://coveralls.io/repos/github/fvdm/nodejs-haveibeenpwned/badge.svg?branch=master)](https://coveralls.io/github/fvdm/nodejs-haveibeenpwned?branch=master)
-[![Greenkeeper badge](https://badges.greenkeeper.io/fvdm/nodejs-haveibeenpwned.svg)](https://greenkeeper.io/)
 
 
 * [Node.js](https://nodejs.org)
