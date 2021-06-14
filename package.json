@@ -1,11 +1,11 @@
 {
   "author": {
-    "name": "Franklin van de Meent",
-    "email": "fr@nkl.in",
-    "url": "https://frankl.in"
+    "name": "Franklin",
+    "email": "info@fvdm.com",
+    "url": "https://fvdm.com"
   },
   "name": "haveibeenpwned",
-  "description": "API methods for Have I been pwned (unofficial)",
+  "description": "API methods for HaveIBeenPwned (unofficial)",
   "version": "1.1.0",
   "repository": {
     "type": "git",
@@ -22,10 +22,10 @@
     "httpreq": "^0.4.24"
   },
   "devDependencies": {
-    "dotest": "^2.3.0"
+    "dotest": "^2.7.1"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=12.0.0"
   },
   "scripts": {
     "test": "dotest"
